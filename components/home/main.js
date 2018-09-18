@@ -7,6 +7,9 @@ import ManufacturerCard from './manufacturerCard'
 import { manufacturers } from '../../data/manufacturers.json'
 
 export default class MainScreen extends React.Component {
+    static navigationOptions = {
+        title: 'PocketDisc'
+    };
     render() {
         let myNavigator = this.props.navigation;
         return (
