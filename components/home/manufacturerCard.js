@@ -32,7 +32,7 @@ export default class MainScreen extends React.Component {
                 <CardItem>
                     <Left style={styles.container}>
                         <Button transparent textStyle={{ color: '#87838B' }}
-                        onPress={() => myNavigator.navigate(manu.name, {
+                        onPress={() => myNavigator.navigate('Manufacturer', {
                             manuName: manu.name,
                         })}>
                             <Icon name="logo-github" />
