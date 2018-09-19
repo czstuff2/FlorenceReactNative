@@ -20,12 +20,12 @@ export default class PickerComponent extends React.Component {
     }
     onStatValueChange(value: string) {
         if (value === 0) {
-            
+
         } else {
-        this.setState({
-            statSelected: value
-        });
-    }
+            this.setState({
+                statSelected: value
+            });
+        }
     }
     render() {
         return (
