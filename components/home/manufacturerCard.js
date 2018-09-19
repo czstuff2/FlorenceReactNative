@@ -6,7 +6,6 @@ export default class MainScreen extends React.Component {
     render() {
         let myNavigator = this.props.myNavigator;
         const manu = this.props.manu;
-        console.log(myNavigator.getParam('manuName', 'DILLIGAF'));
         return (
             <Card style={styles.card}>
                 <CardItem

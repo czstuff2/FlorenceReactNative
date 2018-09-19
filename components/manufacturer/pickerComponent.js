@@ -10,18 +10,26 @@ export default class PickerComponent extends React.Component {
         };
     }
     onTypeValueChange(value: string) {
-        this.setState({
-            typeSelected: value
-        });
+        if (value === 0) {
+
+        } else {
+            this.setState({
+                typeSelected: value
+            });
+        }
     }
     onStatValueChange(value: string) {
+        if (value === 0) {
+            
+        } else {
         this.setState({
             statSelected: value
         });
     }
+    }
     render() {
         return (
-            <Form>
+            <Form style={{flex: 1, flexDirection: 'row'}}>
                 <Picker
                     mode="dropdown"
                     iosIcon={<Icon name="ios-arrow-down-outline" />}
@@ -32,6 +40,7 @@ export default class PickerComponent extends React.Component {
                     selectedValue={this.state.typeSelected}
                     onValueChange={this.onTypeValueChange.bind(this)}
                 >
+                    <Picker.Item label="Sort by Type" value="0" />
                     <Picker.Item label="Driver" value="driver" />
                     <Picker.Item label="Fairway" value="fairway" />
                     <Picker.Item label="Midrange" value="midrange" />
@@ -47,6 +56,7 @@ export default class PickerComponent extends React.Component {
                     selectedValue={this.state.statSelected}
                     onValueChange={this.onStatValueChange.bind(this)}
                 >
+                    <Picker.Item label="Sort by Stat" value="0" />
                     <Picker.Item label="Speed" value="speed" />
                     <Picker.Item label="Glide" value="glide" />
                     <Picker.Item label="Turn" value="turn" />

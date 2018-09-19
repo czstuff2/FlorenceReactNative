@@ -5,6 +5,15 @@ import { Container, Header, Item, Input, Icon, Button, Content } from 'native-ba
 import PickerComponent from './pickerComponent'
 
 export default class ManufacturerScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            typeSelected: undefined,
+            statSelected: undefined,
+            searchParam: undefined,
+            manu: this.props.navigation.getParam('manuName', 'ManuName?')
+        };
+    }
     static navigationOptions = ({ navigation }) => {
         return {
           title: navigation.getParam('manuName', 'Manu Name?'),
@@ -12,6 +21,7 @@ export default class ManufacturerScreen extends React.Component {
       };
     render() {
         let myNavigator = this.props.navigation;
+        console.log(this.state.manu)
         return (
             <Container>
                 <Header searchBar rounded>
@@ -26,7 +36,9 @@ export default class ManufacturerScreen extends React.Component {
                 </Header>
                 <PickerComponent />
                 <Content>
-
+                    {/* Add discs w/ <Separator bordered>
+                        <Text>Drivers</Text>
+                    </Separator> */}
                 </Content>
             </Container>
         )
