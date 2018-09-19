@@ -25,34 +25,32 @@ export default class PickerComponent extends React.Component {
                 <Picker
                     mode="dropdown"
                     iosIcon={<Icon name="ios-arrow-down-outline" />}
-                    placeholder="Type"
+                    placeholder="Sort by type"
                     placeholderStyle={{ color: "#bfc6ea" }}
                     placeholderIconColor="#007aff"
                     style={{ width: undefined }}
                     selectedValue={this.state.typeSelected}
                     onValueChange={this.onTypeValueChange.bind(this)}
                 >
-                    <Picker.Item label="Wallet" value="key0" />
-                    <Picker.Item label="ATM Card" value="key1" />
-                    <Picker.Item label="Debit Card" value="key2" />
-                    <Picker.Item label="Credit Card" value="key3" />
-                    <Picker.Item label="Net Banking" value="key4" />
+                    <Picker.Item label="Driver" value="driver" />
+                    <Picker.Item label="Fairway" value="fairway" />
+                    <Picker.Item label="Midrange" value="midrange" />
+                    <Picker.Item label="Putter" value="putter" />
                 </Picker>
                 <Picker
                     mode="dropdown"
                     iosIcon={<Icon name="ios-arrow-down-outline" />}
-                    placeholder="Type"
+                    placeholder="Sort by stat"
                     placeholderStyle={{ color: "#bfc6ea" }}
                     placeholderIconColor="#007aff"
                     style={{ width: undefined }}
                     selectedValue={this.state.statSelected}
                     onValueChange={this.onStatValueChange.bind(this)}
                 >
-                    <Picker.Item label="Wallet" value="key0" />
-                    <Picker.Item label="ATM Card" value="key1" />
-                    <Picker.Item label="Debit Card" value="key2" />
-                    <Picker.Item label="Credit Card" value="key3" />
-                    <Picker.Item label="Net Banking" value="key4" />
+                    <Picker.Item label="Speed" value="speed" />
+                    <Picker.Item label="Glide" value="glide" />
+                    <Picker.Item label="Turn" value="turn" />
+                    <Picker.Item label="Fade" value="fade" />
                 </Picker>
             </Form>
         );
