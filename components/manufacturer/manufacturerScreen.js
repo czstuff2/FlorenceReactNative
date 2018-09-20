@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native'
-import { Container, Header, Item, Input, Icon, Button, Content, Form } from 'native-base';
+import { Container, Header, Item, Input, Icon, Button, Content, Form, List, ListItem, Body, Right } from 'native-base';
+
+import ManuListComponent from './manuListComponent'
 
 import TypePickerComponent from './typePickerComponent'
 import StatPickerComponent from './statPickerComponent'
@@ -12,6 +14,7 @@ export default class ManufacturerScreen extends React.Component {
             typeSelected: "0",
             statSelected: "0",
             searchParam: undefined,
+            discs: undefined,
             manu: this.props.navigation.getParam('manuName', 'ManuName?')
         };
         this.onTypeValueChange = this.onTypeValueChange.bind(this)
@@ -45,9 +48,12 @@ export default class ManufacturerScreen extends React.Component {
     }
     render() {
         let myNavigator = this.props.navigation;
-        console.log(this.state.manu)
         const typeSelected = this.state.typeSelected
         const statSelected = this.state.statSelected
+        let discs;
+        if(this.state.manu === "Innova") {
+            discs = require('../../data/innova-discs.json')
+        }
         return (
             <Container>
                 <Header searchBar rounded>
@@ -60,7 +66,7 @@ export default class ManufacturerScreen extends React.Component {
                         <Text>Search</Text>
                     </Button>
                 </Header>
-                <Form style={{flex: 1, flexDirection: 'row'}}>
+                <Form style={{flex: 0, flexDirection: 'row'}}>
                     <TypePickerComponent
                         selectedValue={typeSelected}
                         onSelectionChange={this.onTypeValueChange}
@@ -74,6 +80,9 @@ export default class ManufacturerScreen extends React.Component {
                     {/* Add discs w/ <Separator bordered>
                         <Text>Drivers</Text>
                     </Separator> */}
+                    <ManuListComponent 
+                        currentDiscs={discs}
+                    />
                 </Content>
             </Container>
         )
