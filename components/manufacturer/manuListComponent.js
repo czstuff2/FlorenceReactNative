@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native'
-import { Container, Header, Item, Input, Icon, Button, Content, Form, List, ListItem, Body, Right } from 'native-base';
+import { List, ListItem, Body, Right } from 'native-base';
 
 export default class ManuList extends React.Component {
     render() {

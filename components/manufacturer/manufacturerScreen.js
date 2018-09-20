@@ -26,7 +26,7 @@ export default class ManufacturerScreen extends React.Component {
         };
       }
     
-      onTypeValueChange(value: string) {
+      onTypeValueChange(value) {
         if (value === 0) {
 
         } else {
@@ -36,7 +36,7 @@ export default class ManufacturerScreen extends React.Component {
             console.log("type changed on manuScreen")
         }
     }
-    onStatValueChange(value: string) {
+    onStatValueChange(value) {
         if (value === 0) {
 
         } else {
