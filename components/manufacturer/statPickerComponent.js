@@ -26,11 +26,10 @@ export default class statPickerComponent extends React.Component {
                 selectedValue={selection}
                 onValueChange={this.onValueChange}
             >
-                <Picker.Item label="Sort by Stat" value="0" />
-                <Picker.Item label="Speed" value="speed" />
-                <Picker.Item label="Glide" value="glide" />
-                <Picker.Item label="Turn" value="turn" />
-                <Picker.Item label="Fade" value="fade" />
+                <Picker.Item label="Sort by Speed" value="speed" />
+                <Picker.Item label="Sort by Glide" value="glide" />
+                <Picker.Item label="Sort by Turn" value="turn" />
+                <Picker.Item label="Sort by Fade" value="fade" />
             </Picker>
         );
     }

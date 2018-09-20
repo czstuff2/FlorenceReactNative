@@ -12,7 +12,7 @@ export default class ManufacturerScreen extends React.Component {
         super(props);
         this.state = {
             typeSelected: "0",
-            statSelected: "0",
+            statSelected: "speed",
             searchParam: undefined,
             discs: undefined,
             manu: this.props.navigation.getParam('manuName', 'ManuName?')
@@ -43,7 +43,7 @@ export default class ManufacturerScreen extends React.Component {
             this.setState({
                 statSelected: value
             });
-            console.log("stat changed on manuScreen")
+            console.log("stat changed to "+`${value}`+" on manuScreen")
         }
     }
     render() {
