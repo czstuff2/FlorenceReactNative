@@ -26,11 +26,10 @@ export default class PickerComponent extends React.Component {
                 selectedValue={selection}
                 onValueChange={this.onValueChange}
             >
-                <Picker.Item label="Sort by Type" value="0" />
-                <Picker.Item label="Driver" value="driver" />
-                <Picker.Item label="Fairway" value="fairway" />
-                <Picker.Item label="Midrange" value="midrange" />
-                <Picker.Item label="Putter" value="putter" />
+                <Picker.Item label="Drivers" value="driver" />
+                <Picker.Item label="Fairways" value="fairway" />
+                <Picker.Item label="Midranges" value="midrange" />
+                <Picker.Item label="Putters" value="putter" />
             </Picker>
         );
     }
