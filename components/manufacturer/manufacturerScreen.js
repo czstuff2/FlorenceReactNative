@@ -10,6 +10,7 @@ import { observer } from "mobx-react";
 import { observable, computed, autorun } from "mobx";
 
 
+
 @observer
 export default class ManufacturerScreen extends React.Component {
     /*constructor(props) {
