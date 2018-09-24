@@ -101,7 +101,6 @@ export default class ManufacturerScreen extends React.Component {
     }
     render() {
         let myNavigator = this.props.navigation;
-        console.log(this.isSearching)
         return (
             <Container>
                 <Header searchBar rounded>
