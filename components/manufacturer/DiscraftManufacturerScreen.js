@@ -32,10 +32,10 @@ export default class ManufacturerScreen extends React.Component {
     @observable searchParam = ""
     @observable displayDiscs;
     @observable discs = {
-        driver: require('../../data/innova/innova-drivers.json'),
-        fairway: require('../../data/innova/innova-fairway.json'),
-        midrange: require('../../data/innova/innova-midrange.json'),
-        putter: require('../../data/innova/innova-putter.json'),
+        driver: require('../../data/discraft/discraft-drivers.json'),
+        fairway: require('../../data/discraft/discraft-fairway.json'),
+        midrange: require('../../data/discraft/discraft-midrange.json'),
+        putter: require('../../data/discraft/discraft-putter.json'),
     }
     @observable manu = this.props.navigation.getParam('manuName', 'ManuName?')
     
@@ -44,7 +44,7 @@ export default class ManufacturerScreen extends React.Component {
 
     @computed
     get fetchDiscs() {
-        if (this.manu === "Innova") {
+        if (this.manu === "Discraft") {
             return this.discs.driver
         }
     }
@@ -102,6 +102,7 @@ export default class ManufacturerScreen extends React.Component {
     }
     render() {
         let myNavigator = this.props.navigation;
+        console.log(this.displayDiscs)
         return (
             <Container>
                 <Header searchBar rounded>
