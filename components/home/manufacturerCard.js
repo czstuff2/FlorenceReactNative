@@ -6,6 +6,13 @@ export default class MainScreen extends React.Component {
     render() {
         let myNavigator = this.props.myNavigator;
         const manu = this.props.manu;
+        let manuButton = <Button transparent textStyle={{ color: '#87838B' }}
+                                onPress={() => myNavigator.navigate(manu.name, {
+                                    manuName: manu.name,
+                                })}>
+                                <Icon name="logo-github" />
+                                <Text>Show Discs</Text>
+                         </Button>
         return (
             <Card style={styles.card}>
                 <CardItem
@@ -30,13 +37,7 @@ export default class MainScreen extends React.Component {
                 </CardItem>
                 <CardItem>
                     <Left style={styles.container}>
-                        <Button transparent textStyle={{ color: '#87838B' }}
-                        onPress={() => myNavigator.navigate('Manufacturer', {
-                            manuName: manu.name,
-                        })}>
-                            <Icon name="logo-github" />
-                            <Text>Show Discs</Text>
-                        </Button>
+                        {manuButton}
                     </Left>
                 </CardItem>
             </Card>

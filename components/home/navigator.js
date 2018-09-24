@@ -1,12 +1,14 @@
 import React from 'react';
 import MainScreen from './main';
-import ManufacturerScreen from '../manufacturer/manufacturerScreen'
+import InnovaManufacturerScreen from '../manufacturer/InnovaManufacturerScreen'
 import { createStackNavigator } from 'react-navigation';
 
 export default createStackNavigator(
   {
     Home: MainScreen,
-    Manufacturer: ManufacturerScreen
+    Innova: InnovaManufacturerScreen,
+    //Discraft: DiscraftManufacturerScreen,
+    //Latitude: LatitudeManufacturerScreen
   },
   {
     initialRouteName: 'Home'
