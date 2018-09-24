@@ -25,9 +25,10 @@ export default class ManufacturerScreen extends React.Component {
         //this.onTypeValueChange = this.onTypeValueChange.bind(this)
         //this.onStatValueChange = this.onStatValueChange.bind(this)
     }*/
+    @observable searchedDiscsHolder = []
     @observable typeSelected = "driver"
     @observable statSelected = "speed"
-    @observable searchParam = undefined
+    @observable searchParam = ""
     @observable displayDiscs;
     @observable discs = {
         driver: require('../../data/innova/innova-drivers.json'),
@@ -36,6 +37,9 @@ export default class ManufacturerScreen extends React.Component {
         putter: require('../../data/innova/innova-putter.json'),
     }
     @observable manu = this.props.navigation.getParam('manuName', 'ManuName?')
+    
+    @observable isSearching = false;
+    @observable lastSearchString = "";
 
     @computed
     get fetchDiscs() {
@@ -68,15 +72,7 @@ export default class ManufacturerScreen extends React.Component {
 
         } else {
             this.typeSelected = value
-            /*if (this.typeSelected === "driver") {
-                this.displayDiscs = this.discs.driver
-            } else if (this.typeSelected === "fairway") {
-                this.displayDiscs = this.discs.fairway
-            } else if (this.typeSelected === "midrange") {
-                this.displayDiscs = this.discs.midrange
-            } else {
-                this.displayDiscs = this.discs.putter
-            }*/
+            this.searchSelectedFunction(this.lastSearchString)
         }
     }
     onStatValueChange = (value) => {
@@ -84,24 +80,36 @@ export default class ManufacturerScreen extends React.Component {
 
         } else {
             this.statSelected = value
-            console.log("stat changed to "+`${value}`+" on manuScreen")
-            /*this.setState({
-                discs: sortDiscsStat(value, this.state.discs)
-            }) */
         }
     }
     componentWillMount() {
-        console.log("Pulling manu discs");
         this.displayDiscs = this.fetchDiscs
+    }
+    searchSelectedFunction = text => {
+        this.searchParam = text
+
+        const searchedDiscs = this.displayDiscs.filter(disc => {
+            const discData = `${disc.discName.toUpperCase()}`
+            const textData = text.toUpperCase()
+            return discData.indexOf(textData) > -1
+        })
+        this.searchedDiscsHolder = searchedDiscs
+        if(this.searchedDiscsHolder) {
+            this.isSearching = true
+            this.lastSearchString = text
+        }
     }
     render() {
         let myNavigator = this.props.navigation;
+        console.log(this.isSearching)
         return (
             <Container>
                 <Header searchBar rounded>
                     <Item>
                         <Icon name="ios-search" />
-                        <Input placeholder="Search" />
+                        <Input placeholder="Search"
+                               onChangeText={text => this.searchSelectedFunction(text)}
+                        />
                         <Icon name="ios-people" />
                     </Item>
                     <Button transparent>
@@ -123,7 +131,7 @@ export default class ManufacturerScreen extends React.Component {
                         <Text>Drivers</Text>
                     </Separator> */}
                     <ManuListComponent 
-                        currentDiscs={this.displayDiscs}
+                        currentDiscs={this.isSearching ? this.searchedDiscsHolder : this.displayDiscs}
                         statSelected={this.statSelected}
                     />
                 </Content>

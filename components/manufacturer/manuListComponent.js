@@ -6,7 +6,6 @@ import ListItemComponent from './manuListItemComponent'
 
 export default class ManuList extends React.Component {
     render() {
-        console.log("Current stat selected is " + this.props.statSelected)
         return (
             /*<List dataArray={this.props.currentDiscs}
                 renderRow={(disc) =>
