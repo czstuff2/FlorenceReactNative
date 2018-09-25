@@ -6,6 +6,8 @@ import ListItemComponent from './manuListItemComponent'
 
 export default class ManuList extends React.Component {
     render() {
+        let myNavigator = this.props.myNavigator
+        let currentDiscs = this.props.currentDiscs
         return (
             /*<List dataArray={this.props.currentDiscs}
                 renderRow={(disc) =>
@@ -23,8 +25,9 @@ export default class ManuList extends React.Component {
                 }>
             </List> */
             <List>
-                {this.props.currentDiscs.map((disc, i) => {
+                {currentDiscs.map((disc, i) => {
                     return <ListItemComponent 
+                        myNavigator = {myNavigator}
                         key={disc.discName}
                         statSelected={this.props.statSelected}
                         currentDisc={disc}

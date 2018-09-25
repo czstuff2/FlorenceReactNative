@@ -127,7 +127,7 @@ export default class ManufacturerScreen extends React.Component {
                     />
                 </Form>
                 <Content>
-                    <ManuListComponent 
+                    <ManuListComponent myNavigator={myNavigator} 
                         currentDiscs={this.isSearching ? this.searchedDiscsHolder : this.displayDiscs}
                         statSelected={this.statSelected}
                     />

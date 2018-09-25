@@ -4,6 +4,13 @@ import { ListItem, Body, Right } from 'native-base';
 
 
 export default class ManuListItem extends React.Component {
+    handleDiscClick = () => {
+        console.log(this.props);
+        this.props.myNavigator.navigate("DiscRoute", {
+            manuName: this.props.myNavigator.state.params.manuName,
+            disc: this.props.currentDisc
+        })
+    }
     render() {
         const disc = this.props.currentDisc
         const stat = this.props.statSelected
@@ -22,7 +29,7 @@ export default class ManuListItem extends React.Component {
             statText = <Text>{disc.fade}</Text>
         }
         return (
-            <ListItem>
+            <ListItem button onPress={this.handleDiscClick}>
                 <Body>
                     <Text>{disc.discName}</Text>
                 </Body>

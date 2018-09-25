@@ -102,7 +102,6 @@ export default class ManufacturerScreen extends React.Component {
     }
     render() {
         let myNavigator = this.props.navigation;
-        console.log(this.displayDiscs)
         return (
             <Container>
                 <Header searchBar rounded>
@@ -128,7 +127,7 @@ export default class ManufacturerScreen extends React.Component {
                     />
                 </Form>
                 <Content>
-                    <ManuListComponent 
+                    <ManuListComponent myNavigator={myNavigator}
                         currentDiscs={this.isSearching ? this.searchedDiscsHolder : this.displayDiscs}
                         statSelected={this.statSelected}
                     />
