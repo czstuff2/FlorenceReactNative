@@ -8,7 +8,8 @@ export default class ManuListItem extends React.Component {
         console.log(this.props);
         this.props.myNavigator.navigate("DiscRoute", {
             manuName: this.props.myNavigator.state.params.manuName,
-            disc: this.props.currentDisc
+            disc: this.props.currentDisc,
+            discName: this.props.currentDisc.discName
         })
     }
     render() {
